@@ -30,7 +30,7 @@ int main()
 		WINHTTP_NO_PROXY_NAME,
 		WINHTTP_NO_PROXY_BYPASS, 0);
 
-	// Connect an HTTPS server.  INTERNET_DEFAULT_HTTPS_PORT  means using 443 port. You can change to  INTERNET_DEFAULT_HTTP_PORT ,which can build an HTTP server.
+	// Connect an HTTPS server.  INTERNET_DEFAULT_HTTPS_PORT  means using 443 port. You can change to  INTERNET_DEFAULT_HTTP_PORT ,when you connect to an HTTP server.
 	if (hSession)
 		hConnect = WinHttpConnect(hSession, host,
 			INTERNET_DEFAULT_HTTPS_PORT, 0);
