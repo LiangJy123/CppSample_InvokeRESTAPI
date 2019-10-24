@@ -7,7 +7,10 @@
 #include <winhttp.h>
 #pragma comment(lib,"Winhttp.lib")
 
-int ReadFile(char *buffer, long & lSize);
+char *buffer = NULL;
+long  lSize = 0;
+
+int ReadFile();
 
 int main()
 {
@@ -20,8 +23,7 @@ int main()
 	DWORD dwSize = 0;
 	DWORD dwDownloaded = 0;
 
-	char *buffer = NULL;
-	long  lSize = 0;
+	
 
 	LPCWSTR host = L"<Input your host>"; // input your host here ,for example:  "southeastasia.api.cognitive.microsoft.com"
 
@@ -72,7 +74,7 @@ int main()
 			WINHTTP_ADDREQ_FLAG_ADD);
 
 
-	ReadFile(buffer, lSize);
+	ReadFile();
 
 	//Send the Request
 	bResults = WinHttpSendRequest(hRequest,
@@ -143,7 +145,7 @@ int main()
 }
 
 
-int ReadFile(char *buffer, long & lSize)
+int ReadFile()
 {
 	//Read Picture
 	FILE *pFile = NULL;
